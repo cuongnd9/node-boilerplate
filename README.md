@@ -4,7 +4,7 @@
 [![Hits-of-Code](https://hitsofcode.com/github/cuongw/node-rest-boilerplate)](https://hitsofcode.com/view/github/cuongw/node-rest-boilerplate)
 [![GitHub](https://img.shields.io/github/license/cuongw/node-rest-boilerplate.svg)](https://github.com/cuongw/node-rest-boilerplate/blob/master/LICENSE)
 
-> 🎣🌳 Node Boilerplate with Rest, ES6, PostgreSQL.
+> 🌏🚀 A Node.js boilerplate with RESTful, ES6, PostgreSQL, MongoDB and awesome tools.
 
 ## How to use?
 
