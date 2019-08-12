@@ -1,17 +1,17 @@
-# node-rest-boilerplate
+# node-boilerplate
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
-[![Hits-of-Code](https://hitsofcode.com/github/cuongw/node-rest-boilerplate)](https://hitsofcode.com/view/github/cuongw/node-rest-boilerplate)
-[![GitHub](https://img.shields.io/github/license/cuongw/node-rest-boilerplate.svg)](https://github.com/cuongw/node-rest-boilerplate/blob/master/LICENSE)
+[![Hits-of-Code](https://hitsofcode.com/github/cuongw/node-boilerplate)](https://hitsofcode.com/view/github/cuongw/node-boilerplate)
+[![GitHub](https://img.shields.io/github/license/cuongw/node-boilerplate.svg)](https://github.com/cuongw/node-boilerplate/blob/master/LICENSE)
 
-> 🌏🚀 A Node.js boilerplate with RESTful, ES6, PostgreSQL, MongoDB and awesome tools.
+> 🌏🚀 A Node.js boilerplate with RESTful, GraphQL, ES6, PostgreSQL, MongoDB and awesome tools.
 
 ## How to use?
 
 ### Step 1: Clone this project
 
 ```sh
-$ git clone https://github.com/cuongw/node-rest-boilerplate.git
+$ git clone https://github.com/cuongw/node-boilerplate.git
 ```
 
 ### Step 2: Remove `.git` folder
