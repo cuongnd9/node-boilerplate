@@ -1,27 +1,14 @@
-import dotenv from 'dotenv';
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const { prisma } = require('./generated/prisma-client');
 
-dotenv.config();
+// A `main` function so that we can use async/await
+async function main() {
+  // Create a new user called `Alice`
+  const newUser = await prisma.createUser({ name: 'Alice' });
+  console.log(`Created new user: ${newUser.name} (ID: ${newUser.id})`);
 
-// Port.
-const port = process.env.PORT || 9000;
+  // Read all users from the database and print them to the console
+  const allUsers = await prisma.users();
+  console.log(allUsers);
+}
 
-// Initialize app.
-const app = express();
-
-// Body parser.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Enable cors.
-app.use(cors());
-
-// Routes.
-app.get('/', (req, res) => res.send('<p>👋 Xin chào</p>'));
-
-// Start server.
-app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
-});
+main().catch(e => console.error(e));
