@@ -27,10 +27,10 @@ $ cd node-rest-boilerplate && rm -rf .git
 $ sudo docker-compose up -d
 ```
 
-### Step 3: Deploy the Prisma datamodel
+### Step 3: Deploy the Prisma datamodel and generate Prisma client
 
 ```sh
-$ prisma deploy
+$ yarn deploy
 ```
 
 ### Step 4: Install dependencies and run the project
