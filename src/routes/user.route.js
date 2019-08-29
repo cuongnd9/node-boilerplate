@@ -1,37 +1,16 @@
 import express from 'express';
-import { prisma } from '../generated/prisma-client';
+import userController from '../controllers/user.controller';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  const users = await prisma.users();
-  res.json(users);
-});
+router.get('/', userController.list);
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const user = await prisma.user({ id });
-  res.json(user);
-});
+router.get('/:id', userController.retrieve);
 
-router.post('/', async (req, res) => {
-  const newUser = await prisma.createUser(req.body);
-  res.json(newUser);
-});
+router.post('/', userController.create);
 
-router.put('/:id', async (req, res) => {
-  const { id } = req.params;
-  const updatedUser = await prisma.updateUser({
-    where: { id },
-    data: req.body
-  });
-  res.json(updatedUser);
-});
+router.put('/:id', userController.update);
 
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  const deletedUser = await prisma.deleteUser({ id });
-  res.json(deletedUser);
-});
+router.delete('/:id', userController.destroy);
 
 export default router;
