@@ -9,6 +9,7 @@
 ## Prepare
 
 - [Node](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/en/)
 - [Docker](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
