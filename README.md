@@ -21,7 +21,7 @@
 
 ```sh
 $ git clone https://github.com/cuongw/node-boilerplate.git
-$ cd node-rest-boilerplate && rm -rf .git
+$ cd node-boilerplate && rm -rf .git
 ```
 
 ### Step 2: Launch Prisma and the connected database
