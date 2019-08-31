@@ -4,11 +4,14 @@
 [![Hits-of-Code](https://hitsofcode.com/github/cuongw/node-boilerplate)](https://hitsofcode.com/view/github/cuongw/node-boilerplate)
 [![GitHub](https://img.shields.io/github/license/cuongw/node-boilerplate.svg)](https://github.com/cuongw/node-boilerplate/blob/master/LICENSE)
 
-> 🌏🚀 A Node.js boilerplate with RESTful, GraphQL, ES6, Prisma, PostgreSQL, MongoDB and awesome tools.
+> 🌏🚀 A Node.js boilerplate with RESTful, GraphQL, Prisma, PostgreSQL, MongoDB and awesome tools.
+
+## Features
 
 ## Prepare
 
 - [Node](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/en/)
 - [Docker](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
