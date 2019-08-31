@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
@@ -6,8 +6,6 @@ import cors from 'cors';
 import logger from 'morgan';
 import apiRoute from './routes';
 import schema from './graphql';
-
-dotenv.config();
 
 // Port.
 const port = process.env.PORT || 9000;
