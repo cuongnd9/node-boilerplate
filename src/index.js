@@ -34,6 +34,5 @@ const server = new ApolloServer({ schema });
 server.applyMiddleware({ app });
 
 // Start server.
-app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}${server.graphqlPath}`);
-});
+// eslint-disable-next-line no-console
+app.listen(port, () => console.log(`Server started on http://localhost:${port}${server.graphqlPath}`));
