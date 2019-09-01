@@ -1,6 +1,5 @@
 # node-boilerplate
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
 [![Hits-of-Code](https://hitsofcode.com/github/cuongw/node-boilerplate)](https://hitsofcode.com/view/github/cuongw/node-boilerplate)
 [![GitHub](https://img.shields.io/github/license/cuongw/node-boilerplate.svg)](https://github.com/cuongw/node-boilerplate/blob/master/LICENSE)
 
