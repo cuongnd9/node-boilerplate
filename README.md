@@ -8,6 +8,12 @@
 
 ## Features
 
+- ESNext
+- RESTful api
+- GraphQL
+- Prisma
+- PostgreSQL
+
 ## Prepare
 
 - [Node](https://nodejs.org/en/)
