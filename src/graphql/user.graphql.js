@@ -27,7 +27,7 @@ const resolvers = {
     },
     user(_, args) {
       return userService.getUser(args.id);
-    }
+    },
   },
   Mutation: {
     createUser(_, args) {
@@ -39,11 +39,11 @@ const resolvers = {
     },
     deleteUser(_, args) {
       return userService.deleteUser(args.id);
-    }
-  }
+    },
+  },
 };
 
 export default {
   typeDefs,
-  resolvers
+  resolvers,
 };
