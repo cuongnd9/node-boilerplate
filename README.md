@@ -45,7 +45,7 @@ $ yarn deploy
 
 ```sh
 $ yarn
-$ yarn start
+$ yarn start:dev
 ```
 
 🙌 Awesome

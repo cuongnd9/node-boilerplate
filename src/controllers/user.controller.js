@@ -33,5 +33,5 @@ export default {
   retrieve,
   create,
   update,
-  destroy
+  destroy,
 };

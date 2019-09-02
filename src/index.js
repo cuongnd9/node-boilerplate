@@ -4,6 +4,7 @@ import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import logger from 'morgan';
+import signale from 'signale';
 import apiRoute from './routes';
 import schema from './graphql';
 
@@ -34,5 +35,6 @@ const server = new ApolloServer({ schema });
 server.applyMiddleware({ app });
 
 // Start server.
-// eslint-disable-next-line no-console
-app.listen(port, () => console.log(`Server started on http://localhost:${port}${server.graphqlPath}`));
+app.listen(port, () =>
+  signale.debug(`Server started on http://localhost:${port}${server.graphqlPath}`),
+);
