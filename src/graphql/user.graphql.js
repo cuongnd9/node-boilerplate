@@ -8,15 +8,16 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(email: String, name: String!): User
-    updateUser(id: ID!, email: String, name: String!): User
+    createUser(email: String!, password: String!, name: String): User
+    updateUser(id: ID!, email: String!, password: String!, name: String): User
     deleteUser(id: ID!): User
   }
 
   type User {
     id: ID!
-    email: String
-    name: String!
+    email: String!
+    password: String!
+    name: String
   }
 `;
 
@@ -34,8 +35,8 @@ const resolvers = {
       return userService.createUser(args);
     },
     updateUser(_, args) {
-      const { id, name, email } = args;
-      return userService.updateUser(id, { name, email });
+      const { id, name, email, password } = args;
+      return userService.updateUser(id, { name, email, password });
     },
     deleteUser(_, args) {
       return userService.deleteUser(args.id);
