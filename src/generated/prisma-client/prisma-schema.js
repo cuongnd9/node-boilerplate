@@ -76,7 +76,7 @@ module.exports = {
         id: ID!
         email: String!
         password: String!
-        name: String
+        name: String!
       }
 
       type UserConnection {
@@ -89,7 +89,7 @@ module.exports = {
         id: ID
         email: String!
         password: String!
-        name: String
+        name: String!
       }
 
       type UserEdge {
@@ -112,7 +112,7 @@ module.exports = {
         id: ID!
         email: String!
         password: String!
-        name: String
+        name: String!
       }
 
       type UserSubscriptionPayload {
