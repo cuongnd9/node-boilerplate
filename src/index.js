@@ -14,9 +14,6 @@ const port = process.env.PORT || 9000;
 // Initialize app.
 const app = express();
 
-// Log request to the console.
-app.use(logger('dev'));
-
 // Body parser.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -26,13 +23,13 @@ app.use(cors());
 
 // Routes.
 app.get('/', (req, res) => res.send('<p>👋 Xin chào</p>'));
-app.use('/api', apiRoute);
+app.use('/api', logger('dev'), apiRoute);
 
 // Initialize apollo server.
 const server = new ApolloServer({ schema });
 
 // Apply middleware.
-server.applyMiddleware({ app });
+server.applyMiddleware({ app, cors: true });
 
 // Start server.
 app.listen(port, () =>
