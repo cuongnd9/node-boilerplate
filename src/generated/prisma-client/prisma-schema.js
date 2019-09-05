@@ -13,6 +13,8 @@ module.exports = {
         count: Long!
       }
 
+      scalar DateTime
+
       scalar Long
 
       type Mutation {
@@ -73,10 +75,14 @@ module.exports = {
       }
 
       type User {
-        id: ID!
-        email: String!
-        password: String!
+        id: UUID!
+        email: String
         name: String
+        phoneNumber: String
+        address: String
+        dob: DateTime
+        createdAt: DateTime!
+        updatedAt: DateTime!
       }
 
       type UserConnection {
@@ -86,10 +92,12 @@ module.exports = {
       }
 
       input UserCreateInput {
-        id: ID
-        email: String!
-        password: String!
+        id: UUID
+        email: String
         name: String
+        phoneNumber: String
+        address: String
+        dob: DateTime
       }
 
       type UserEdge {
@@ -102,17 +110,29 @@ module.exports = {
         id_DESC
         email_ASC
         email_DESC
-        password_ASC
-        password_DESC
         name_ASC
         name_DESC
+        phoneNumber_ASC
+        phoneNumber_DESC
+        address_ASC
+        address_DESC
+        dob_ASC
+        dob_DESC
+        createdAt_ASC
+        createdAt_DESC
+        updatedAt_ASC
+        updatedAt_DESC
       }
 
       type UserPreviousValues {
-        id: ID!
-        email: String!
-        password: String!
+        id: UUID!
+        email: String
         name: String
+        phoneNumber: String
+        address: String
+        dob: DateTime
+        createdAt: DateTime!
+        updatedAt: DateTime!
       }
 
       type UserSubscriptionPayload {
@@ -135,31 +155,35 @@ module.exports = {
 
       input UserUpdateInput {
         email: String
-        password: String
         name: String
+        phoneNumber: String
+        address: String
+        dob: DateTime
       }
 
       input UserUpdateManyMutationInput {
         email: String
-        password: String
         name: String
+        phoneNumber: String
+        address: String
+        dob: DateTime
       }
 
       input UserWhereInput {
-        id: ID
-        id_not: ID
-        id_in: [ID!]
-        id_not_in: [ID!]
-        id_lt: ID
-        id_lte: ID
-        id_gt: ID
-        id_gte: ID
-        id_contains: ID
-        id_not_contains: ID
-        id_starts_with: ID
-        id_not_starts_with: ID
-        id_ends_with: ID
-        id_not_ends_with: ID
+        id: UUID
+        id_not: UUID
+        id_in: [UUID!]
+        id_not_in: [UUID!]
+        id_lt: UUID
+        id_lte: UUID
+        id_gt: UUID
+        id_gte: UUID
+        id_contains: UUID
+        id_not_contains: UUID
+        id_starts_with: UUID
+        id_not_starts_with: UUID
+        id_ends_with: UUID
+        id_not_ends_with: UUID
         email: String
         email_not: String
         email_in: [String!]
@@ -174,20 +198,6 @@ module.exports = {
         email_not_starts_with: String
         email_ends_with: String
         email_not_ends_with: String
-        password: String
-        password_not: String
-        password_in: [String!]
-        password_not_in: [String!]
-        password_lt: String
-        password_lte: String
-        password_gt: String
-        password_gte: String
-        password_contains: String
-        password_not_contains: String
-        password_starts_with: String
-        password_not_starts_with: String
-        password_ends_with: String
-        password_not_ends_with: String
         name: String
         name_not: String
         name_in: [String!]
@@ -202,14 +212,68 @@ module.exports = {
         name_not_starts_with: String
         name_ends_with: String
         name_not_ends_with: String
+        phoneNumber: String
+        phoneNumber_not: String
+        phoneNumber_in: [String!]
+        phoneNumber_not_in: [String!]
+        phoneNumber_lt: String
+        phoneNumber_lte: String
+        phoneNumber_gt: String
+        phoneNumber_gte: String
+        phoneNumber_contains: String
+        phoneNumber_not_contains: String
+        phoneNumber_starts_with: String
+        phoneNumber_not_starts_with: String
+        phoneNumber_ends_with: String
+        phoneNumber_not_ends_with: String
+        address: String
+        address_not: String
+        address_in: [String!]
+        address_not_in: [String!]
+        address_lt: String
+        address_lte: String
+        address_gt: String
+        address_gte: String
+        address_contains: String
+        address_not_contains: String
+        address_starts_with: String
+        address_not_starts_with: String
+        address_ends_with: String
+        address_not_ends_with: String
+        dob: DateTime
+        dob_not: DateTime
+        dob_in: [DateTime!]
+        dob_not_in: [DateTime!]
+        dob_lt: DateTime
+        dob_lte: DateTime
+        dob_gt: DateTime
+        dob_gte: DateTime
+        createdAt: DateTime
+        createdAt_not: DateTime
+        createdAt_in: [DateTime!]
+        createdAt_not_in: [DateTime!]
+        createdAt_lt: DateTime
+        createdAt_lte: DateTime
+        createdAt_gt: DateTime
+        createdAt_gte: DateTime
+        updatedAt: DateTime
+        updatedAt_not: DateTime
+        updatedAt_in: [DateTime!]
+        updatedAt_not_in: [DateTime!]
+        updatedAt_lt: DateTime
+        updatedAt_lte: DateTime
+        updatedAt_gt: DateTime
+        updatedAt_gte: DateTime
         AND: [UserWhereInput!]
         OR: [UserWhereInput!]
         NOT: [UserWhereInput!]
       }
 
       input UserWhereUniqueInput {
-        id: ID
+        id: UUID
         email: String
       }
+
+      scalar UUID
     `,
 };

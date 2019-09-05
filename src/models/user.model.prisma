@@ -1,6 +1,10 @@
 type User {
-  id: ID! @id
-  email: String! @unique
-  password: String!
+  id: UUID! @id
+  email: String @unique
   name: String
+  phoneNumber: String
+  address: String
+  dob: DateTime
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
