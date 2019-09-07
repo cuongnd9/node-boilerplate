@@ -7,9 +7,7 @@ import logger from 'morgan';
 import signale from 'signale';
 import apiRoute from './routes';
 import schema from './graphql';
-
-// Port.
-const port = process.env.PORT || 9000;
+import config from './config';
 
 // Initialize app.
 const app = express();
@@ -32,6 +30,6 @@ const server = new ApolloServer({ schema });
 server.applyMiddleware({ app, cors: true });
 
 // Start server.
-app.listen(port, () =>
-  signale.debug(`Server started on http://localhost:${port}${server.graphqlPath}`),
+app.listen(config.port, () =>
+  signale.debug(`Server started on http://localhost:${config.port}${server.graphqlPath}`),
 );
