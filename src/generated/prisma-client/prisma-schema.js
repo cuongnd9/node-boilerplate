@@ -25,7 +25,7 @@ module.exports = {
         id: UUID
         username: String!
         password: String!
-        role: Role!
+        role: Role
         user: UserCreateOneInput
       }
 

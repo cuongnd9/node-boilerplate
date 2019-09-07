@@ -290,7 +290,7 @@ export interface AccountCreateInput {
   id?: Maybe<UUID>;
   username: String;
   password: String;
-  role: Role;
+  role?: Maybe<Role>;
   user?: Maybe<UserCreateOneInput>;
 }
 
