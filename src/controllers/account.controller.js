@@ -6,8 +6,8 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
-  const token = await accountService.login(req.body);
-  res.json(token);
+  const data = await accountService.login(req.body);
+  res.json(data);
 }
 
 export default {
