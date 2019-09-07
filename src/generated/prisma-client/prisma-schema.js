@@ -5,6 +5,168 @@ module.exports = {
     // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
     /* GraphQL */ `
+      type Account {
+        id: UUID!
+        username: String!
+        password: String!
+        role: Role!
+        user: User
+        createdAt: DateTime!
+        updatedAt: DateTime!
+      }
+
+      type AccountConnection {
+        pageInfo: PageInfo!
+        edges: [AccountEdge]!
+        aggregate: AggregateAccount!
+      }
+
+      input AccountCreateInput {
+        id: UUID
+        username: String!
+        password: String!
+        role: Role!
+        user: UserCreateOneInput
+      }
+
+      type AccountEdge {
+        node: Account!
+        cursor: String!
+      }
+
+      enum AccountOrderByInput {
+        id_ASC
+        id_DESC
+        username_ASC
+        username_DESC
+        password_ASC
+        password_DESC
+        role_ASC
+        role_DESC
+        createdAt_ASC
+        createdAt_DESC
+        updatedAt_ASC
+        updatedAt_DESC
+      }
+
+      type AccountPreviousValues {
+        id: UUID!
+        username: String!
+        password: String!
+        role: Role!
+        createdAt: DateTime!
+        updatedAt: DateTime!
+      }
+
+      type AccountSubscriptionPayload {
+        mutation: MutationType!
+        node: Account
+        updatedFields: [String!]
+        previousValues: AccountPreviousValues
+      }
+
+      input AccountSubscriptionWhereInput {
+        mutation_in: [MutationType!]
+        updatedFields_contains: String
+        updatedFields_contains_every: [String!]
+        updatedFields_contains_some: [String!]
+        node: AccountWhereInput
+        AND: [AccountSubscriptionWhereInput!]
+        OR: [AccountSubscriptionWhereInput!]
+        NOT: [AccountSubscriptionWhereInput!]
+      }
+
+      input AccountUpdateInput {
+        username: String
+        password: String
+        role: Role
+        user: UserUpdateOneInput
+      }
+
+      input AccountUpdateManyMutationInput {
+        username: String
+        password: String
+        role: Role
+      }
+
+      input AccountWhereInput {
+        id: UUID
+        id_not: UUID
+        id_in: [UUID!]
+        id_not_in: [UUID!]
+        id_lt: UUID
+        id_lte: UUID
+        id_gt: UUID
+        id_gte: UUID
+        id_contains: UUID
+        id_not_contains: UUID
+        id_starts_with: UUID
+        id_not_starts_with: UUID
+        id_ends_with: UUID
+        id_not_ends_with: UUID
+        username: String
+        username_not: String
+        username_in: [String!]
+        username_not_in: [String!]
+        username_lt: String
+        username_lte: String
+        username_gt: String
+        username_gte: String
+        username_contains: String
+        username_not_contains: String
+        username_starts_with: String
+        username_not_starts_with: String
+        username_ends_with: String
+        username_not_ends_with: String
+        password: String
+        password_not: String
+        password_in: [String!]
+        password_not_in: [String!]
+        password_lt: String
+        password_lte: String
+        password_gt: String
+        password_gte: String
+        password_contains: String
+        password_not_contains: String
+        password_starts_with: String
+        password_not_starts_with: String
+        password_ends_with: String
+        password_not_ends_with: String
+        role: Role
+        role_not: Role
+        role_in: [Role!]
+        role_not_in: [Role!]
+        user: UserWhereInput
+        createdAt: DateTime
+        createdAt_not: DateTime
+        createdAt_in: [DateTime!]
+        createdAt_not_in: [DateTime!]
+        createdAt_lt: DateTime
+        createdAt_lte: DateTime
+        createdAt_gt: DateTime
+        createdAt_gte: DateTime
+        updatedAt: DateTime
+        updatedAt_not: DateTime
+        updatedAt_in: [DateTime!]
+        updatedAt_not_in: [DateTime!]
+        updatedAt_lt: DateTime
+        updatedAt_lte: DateTime
+        updatedAt_gt: DateTime
+        updatedAt_gte: DateTime
+        AND: [AccountWhereInput!]
+        OR: [AccountWhereInput!]
+        NOT: [AccountWhereInput!]
+      }
+
+      input AccountWhereUniqueInput {
+        id: UUID
+        username: String
+      }
+
+      type AggregateAccount {
+        count: Int!
+      }
+
       type AggregateUser {
         count: Int!
       }
@@ -18,6 +180,19 @@ module.exports = {
       scalar Long
 
       type Mutation {
+        createAccount(data: AccountCreateInput!): Account!
+        updateAccount(data: AccountUpdateInput!, where: AccountWhereUniqueInput!): Account
+        updateManyAccounts(
+          data: AccountUpdateManyMutationInput!
+          where: AccountWhereInput
+        ): BatchPayload!
+        upsertAccount(
+          where: AccountWhereUniqueInput!
+          create: AccountCreateInput!
+          update: AccountUpdateInput!
+        ): Account!
+        deleteAccount(where: AccountWhereUniqueInput!): Account
+        deleteManyAccounts(where: AccountWhereInput): BatchPayload!
         createUser(data: UserCreateInput!): User!
         updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
         updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -48,6 +223,25 @@ module.exports = {
       }
 
       type Query {
+        account(where: AccountWhereUniqueInput!): Account
+        accounts(
+          where: AccountWhereInput
+          orderBy: AccountOrderByInput
+          skip: Int
+          after: String
+          before: String
+          first: Int
+          last: Int
+        ): [Account]!
+        accountsConnection(
+          where: AccountWhereInput
+          orderBy: AccountOrderByInput
+          skip: Int
+          after: String
+          before: String
+          first: Int
+          last: Int
+        ): AccountConnection!
         user(where: UserWhereUniqueInput!): User
         users(
           where: UserWhereInput
@@ -70,7 +264,14 @@ module.exports = {
         node(id: ID!): Node
       }
 
+      enum Role {
+        ADMIN
+        MANAGER
+        STAFF
+      }
+
       type Subscription {
+        account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
         user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
       }
 
@@ -98,6 +299,11 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+      }
+
+      input UserCreateOneInput {
+        create: UserCreateInput
+        connect: UserWhereUniqueInput
       }
 
       type UserEdge {
@@ -153,6 +359,14 @@ module.exports = {
         NOT: [UserSubscriptionWhereInput!]
       }
 
+      input UserUpdateDataInput {
+        email: String
+        name: String
+        phoneNumber: String
+        address: String
+        dob: DateTime
+      }
+
       input UserUpdateInput {
         email: String
         name: String
@@ -167,6 +381,20 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+      }
+
+      input UserUpdateOneInput {
+        create: UserCreateInput
+        update: UserUpdateDataInput
+        upsert: UserUpsertNestedInput
+        delete: Boolean
+        disconnect: Boolean
+        connect: UserWhereUniqueInput
+      }
+
+      input UserUpsertNestedInput {
+        update: UserUpdateDataInput!
+        create: UserCreateInput!
       }
 
       input UserWhereInput {
