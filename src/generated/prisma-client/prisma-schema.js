@@ -270,6 +270,11 @@ module.exports = {
         STAFF
       }
 
+      enum Sex {
+        MALE
+        FEMALE
+      }
+
       type Subscription {
         account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
         user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
@@ -282,6 +287,7 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+        sex: Sex
         createdAt: DateTime!
         updatedAt: DateTime!
       }
@@ -299,6 +305,7 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+        sex: Sex
       }
 
       input UserCreateOneInput {
@@ -324,6 +331,8 @@ module.exports = {
         address_DESC
         dob_ASC
         dob_DESC
+        sex_ASC
+        sex_DESC
         createdAt_ASC
         createdAt_DESC
         updatedAt_ASC
@@ -337,6 +346,7 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+        sex: Sex
         createdAt: DateTime!
         updatedAt: DateTime!
       }
@@ -365,6 +375,7 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+        sex: Sex
       }
 
       input UserUpdateInput {
@@ -373,6 +384,7 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+        sex: Sex
       }
 
       input UserUpdateManyMutationInput {
@@ -381,6 +393,7 @@ module.exports = {
         phoneNumber: String
         address: String
         dob: DateTime
+        sex: Sex
       }
 
       input UserUpdateOneInput {
@@ -476,6 +489,10 @@ module.exports = {
         dob_lte: DateTime
         dob_gt: DateTime
         dob_gte: DateTime
+        sex: Sex
+        sex_not: Sex
+        sex_in: [Sex!]
+        sex_not_in: [Sex!]
         createdAt: DateTime
         createdAt_not: DateTime
         createdAt_in: [DateTime!]

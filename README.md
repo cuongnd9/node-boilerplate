@@ -38,7 +38,7 @@ $ sudo docker-compose up -d
 ### Step 3: Deploy the Prisma datamodel and generate Prisma client
 
 ```sh
-$ yarn deploy
+$ yarn prisma:deploy
 ```
 
 ### Step 4: Install dependencies and run the project
