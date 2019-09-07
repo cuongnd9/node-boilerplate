@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import _ from 'lodash';
 import { prisma } from '@/generated/prisma-client';
 import config from '@/config';
 
@@ -30,7 +31,10 @@ async function login(data) {
     role,
   };
   const token = jwt.sign(payload, secretKey, { algorithm, expiresIn });
-  return token;
+  return {
+    token,
+    account: _.omit(account, ['password']),
+  };
 }
 
 export default {
