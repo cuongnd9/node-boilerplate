@@ -6,7 +6,7 @@ enum Sex {
 type User {
   id: UUID! @id
   email: String @unique
-  name: String
+  name: String!
   phoneNumber: String
   address: String
   dob: DateTime
