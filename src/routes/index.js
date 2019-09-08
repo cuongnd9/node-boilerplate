@@ -4,6 +4,7 @@ import cors from 'cors';
 import logger from 'morgan';
 import { errors } from 'celebrate';
 import authenticate from '@/helpers/authenticate';
+import errorHandler from '@/helpers/errorHandler';
 import userRoute from './user.route';
 import accountRoute from './account.route';
 
@@ -23,5 +24,8 @@ router.use('/account', accountRoute);
 
 // Celebrate validation errors.
 router.use(errors());
+
+// Global errors.
+router.use(errorHandler);
 
 export default router;
