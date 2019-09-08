@@ -1,12 +1,12 @@
-import accountService from '@/services/account.service';
+import service from '@/services/account.service';
 
 async function register(req, res) {
-  const newAccount = await accountService.register(req.body);
+  const newAccount = await service.register(req.body);
   res.json(newAccount);
 }
 
 async function login(req, res) {
-  const data = await accountService.login(req.body);
+  const data = await service.login(req.body);
   res.json(data);
 }
 

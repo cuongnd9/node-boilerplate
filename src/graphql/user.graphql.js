@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-express';
-import userService from '@/services/user.service';
+import service from '@/services/user.service';
 
 const typeDefs = gql`
   type Query {
@@ -35,22 +35,22 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     users() {
-      return userService.getUsers();
+      return service.getUsers();
     },
     user(_, args) {
-      return userService.getUser(args.id);
+      return service.getUser(args.id);
     },
   },
   Mutation: {
     createUser(_, args) {
-      return userService.createUser(args);
+      return service.createUser(args);
     },
     updateUser(_, args) {
       const { id, ...data } = args;
-      return userService.updateUser(id, data);
+      return service.updateUser(id, data);
     },
     deleteUser(_, args) {
-      return userService.deleteUser(args.id);
+      return service.deleteUser(args.id);
     },
   },
 };

@@ -283,7 +283,7 @@ module.exports = {
       type User {
         id: UUID!
         email: String
-        name: String
+        name: String!
         phoneNumber: String
         address: String
         dob: DateTime
@@ -301,7 +301,7 @@ module.exports = {
       input UserCreateInput {
         id: UUID
         email: String
-        name: String
+        name: String!
         phoneNumber: String
         address: String
         dob: DateTime
@@ -342,7 +342,7 @@ module.exports = {
       type UserPreviousValues {
         id: UUID!
         email: String
-        name: String
+        name: String!
         phoneNumber: String
         address: String
         dob: DateTime

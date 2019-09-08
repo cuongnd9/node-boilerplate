@@ -302,7 +302,7 @@ export interface UserCreateOneInput {
 export interface UserCreateInput {
   id?: Maybe<UUID>;
   email?: Maybe<String>;
-  name?: Maybe<String>;
+  name: String;
   phoneNumber?: Maybe<String>;
   address?: Maybe<String>;
   dob?: Maybe<DateTimeInput>;
@@ -489,7 +489,7 @@ export interface PageInfoSubscription extends Promise<AsyncIterator<PageInfo>>, 
 export interface User {
   id: UUID;
   email?: String;
-  name?: String;
+  name: String;
   phoneNumber?: String;
   address?: String;
   dob?: DateTimeOutput;
@@ -556,7 +556,7 @@ export interface AccountConnectionSubscription
 export interface UserPreviousValues {
   id: UUID;
   email?: String;
-  name?: String;
+  name: String;
   phoneNumber?: String;
   address?: String;
   dob?: DateTimeOutput;
