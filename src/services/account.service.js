@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
+import Boom from '@hapi/boom';
 import { prisma } from '@/generated/prisma-client';
 import config from '@/config';
 
@@ -18,11 +19,11 @@ async function login(data) {
   const { username, password } = data;
   const account = await prisma.account({ username });
   if (!account) {
-    throw new Error('username does not exist');
+    throw Boom.notFound('username does not exist');
   }
   const match = await bcrypt.compare(password, account.password);
   if (!match) {
-    throw new Error('password is incorrect');
+    throw Boom.unauthorized('password is incorrect');
   }
   const { id, role } = account;
   const { secretKey, expiresIn, algorithm } = config.jwt;

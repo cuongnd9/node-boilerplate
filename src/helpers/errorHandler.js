@@ -10,7 +10,7 @@ export default function handleError(err, req, res, next) {
     const { statusCode, payload } = err.output;
     return res.status(statusCode).json(payload);
   }
-  const { statusCode } = err;
+  const { statusCode = 500 } = err;
   res.status(statusCode).json(err);
   next();
 }
