@@ -1,12 +1,17 @@
 import express from 'express';
 import { celebrate, Joi } from 'celebrate';
 import authorize from '@/helpers/authorize';
+import withController from '@/helpers/withController';
 import { roles } from '@/config/constants';
 import controller from '@/controllers/user.controller';
 
 const router = express.Router();
 
-router.get('/', authorize(roles.admin, roles.manager, roles.staff), controller.list);
+router.get(
+  '/',
+  authorize(roles.admin, roles.manager, roles.staff),
+  withController(controller.list),
+);
 
 router.get(
   '/:id',
@@ -18,7 +23,7 @@ router.get(
         .required(),
     }),
   }),
-  controller.retrieve,
+  withController(controller.retrieve),
 );
 
 router.post(
@@ -34,7 +39,7 @@ router.post(
       sex: Joi.string().valid('MALE', 'FEMALE'),
     }),
   }),
-  controller.create,
+  withController(controller.create),
 );
 
 router.put(
@@ -55,7 +60,7 @@ router.put(
       sex: Joi.string().valid('MALE', 'FEMALE'),
     }),
   }),
-  controller.update,
+  withController(controller.update),
 );
 
 router.delete(
@@ -68,7 +73,7 @@ router.delete(
         .required(),
     }),
   }),
-  controller.destroy,
+  withController(controller.destroy),
 );
 
 export default router;

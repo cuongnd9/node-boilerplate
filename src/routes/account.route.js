@@ -1,5 +1,6 @@
 import express from 'express';
 import { celebrate, Joi } from 'celebrate';
+import withController from '@/helpers/withController';
 import controller from '@/controllers/account.controller';
 
 const router = express.Router();
@@ -13,7 +14,7 @@ router.post(
       role: Joi.string().default('STAFF'),
     }),
   }),
-  controller.register,
+  withController(controller.register),
 );
 router.post(
   '/login',
@@ -23,7 +24,7 @@ router.post(
       password: Joi.string().required(),
     }),
   }),
-  controller.login,
+  withController(controller.login),
 );
 
 export default router;
