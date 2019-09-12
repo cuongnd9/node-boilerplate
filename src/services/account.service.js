@@ -23,7 +23,7 @@ async function login(data) {
   }
   const match = await bcrypt.compare(password, account.password);
   if (!match) {
-    throw Boom.unauthorized('password is incorrect');
+    throw new Error('password is incorrect');
   }
   const { id, role } = account;
   const { secretKey, expiresIn, algorithm } = config.jwt;
