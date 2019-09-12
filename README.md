@@ -7,11 +7,12 @@
 
 ## Features
 
-- ESNext
-- RESTful api
-- GraphQL
-- Prisma
-- PostgreSQL
+- Using ESNext
+- Setup Babel, ESLint, Ava and Husky.
+- Having Basic authentication and authorization.
+- Setup a basic RESTful API.
+- Integrating Graphql.
+- Using Prisma and PostgreSQL.
 
 ## Prepare
 

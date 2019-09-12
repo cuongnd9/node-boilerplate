@@ -2,7 +2,7 @@ import Boom from '@hapi/boom';
 
 export default function handleError(err, req, res, next) {
   if (err.statusCode) {
-    // Error for celebrate(Joi validation).
+    // Error for Celebrate(Joi validation).
     return res.status(err.statusCode).json(err);
   }
   if (err.isBoom) {
