@@ -1,17 +1,23 @@
 # node-boilerplate
 
 [![Hits-of-Code](https://hitsofcode.com/github/cuongw/node-boilerplate)](https://hitsofcode.com/view/github/cuongw/node-boilerplate)
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/cuongw/node-boilerplate)
 [![GitHub](https://img.shields.io/github/license/cuongw/node-boilerplate.svg)](https://github.com/cuongw/node-boilerplate/blob/master/LICENSE)
 
 > 🌏🚀 A Node.js boilerplate with RESTful, GraphQL, Prisma, PostgreSQL and awesome tools.
 
 ## Features
 
-- ESNext
-- RESTful api
-- GraphQL
-- Prisma
-- PostgreSQL
+- Using ESNext
+- Setup Babel, ESLint, Prettier, Ava and Husky.
+- Having Basic authentication and authorization.
+- Setup a basic RESTful API.
+- Integrating Graphql.
+- Using Prisma and PostgreSQL.
+
+## Stack
+
+![Stack](./images/stack.png)
 
 ## Prepare
 
